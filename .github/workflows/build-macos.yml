@@ -1,0 +1,36 @@
+name: Build for macOS
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: brew install create-dmg
+      - run: uv sync
+      - run: uv run pyinstaller --onefile --name "FS25 Vehicle Sorter" --windowed main.py
+      - run: |
+             create-dmg \
+                --volname "FS25 Vehicle Sorter Installer" \
+                --window-pos 200 120 \
+                --window-size 800 400 \
+                --icon-size 100 \
+                --icon "FS25 Vehicle Sorter.app" 200 190 \
+                --hide-extension "FS25 Vehicle Sorter.app" \
+                --app-drop-link 600 185 \
+                "dist/FS25-Vehicle-Sorter-Installer.dmg" \
+                "dist/FS25 Vehicle Sorter.app/"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          path: "dist/FS25-Vehicle-Sorter-Installer.dmg"
