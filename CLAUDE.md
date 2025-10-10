@@ -83,6 +83,19 @@ uv run ruff format .
 uv run ruff check --fix . && uv run ruff format .
 ```
 
+### Pre-commit hooks
+Pre-commit hooks automatically run ruff before each commit:
+```bash
+# Install the hooks (one-time setup)
+uv run pre-commit install
+
+# Manually run hooks on all files
+uv run pre-commit run --all-files
+
+# Skip hooks for a specific commit (not recommended)
+git commit --no-verify
+```
+
 ## Platform-specific Notes
 
 The app detects the platform and sets default savegame locations:
