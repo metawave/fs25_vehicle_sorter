@@ -7,6 +7,7 @@ class Vehicle:
     FS25 uses uniqueId (hash strings) instead of numeric IDs.
     Vehicle order in the XML determines TAB-cycling order in game.
     """
+
     unique_id: str
     name: str
     operating_time: float
@@ -20,7 +21,9 @@ class Vehicle:
 
         # Extract vehicle name from filename
         if xml_node.get("modName") is not None:
-            self.name = xml_node.get("filename").split("/").pop().replace(".xml", "") + " (" + xml_node.get("modName") + ")"
+            self.name = (
+                xml_node.get("filename").split("/").pop().replace(".xml", "") + " (" + xml_node.get("modName") + ")"
+            )
         else:
             self.name = xml_node.get("filename").split("/").pop().replace(".xml", "")
 

@@ -68,6 +68,21 @@ uv run python main.py
 uv run pyinstaller --onefile --name "FS25 Vehicle Sorter" --windowed main.py
 ```
 
+### Code quality (Ruff)
+```bash
+# Check for linting issues
+uv run ruff check .
+
+# Auto-fix linting issues
+uv run ruff check --fix .
+
+# Format code
+uv run ruff format .
+
+# Run both fix and format
+uv run ruff check --fix . && uv run ruff format .
+```
+
 ## Platform-specific Notes
 
 The app detects the platform and sets default savegame locations:

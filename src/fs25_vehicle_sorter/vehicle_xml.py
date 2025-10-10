@@ -1,7 +1,7 @@
 import datetime
 import os.path
-from xml.etree import cElementTree as ET
-from xml.etree.ElementTree import ElementTree, Element
+from xml.etree import ElementTree as ET
+from xml.etree.ElementTree import Element, ElementTree
 
 from .model import Vehicle
 
@@ -15,6 +15,7 @@ class VehiclesXml:
     - Attachments are inline via attacherJoints/attachedImplement
     - No separate attachments section
     """
+
     savegame_folder: str
     vehicle_xml_tree: ElementTree
     vehicle_root: Element
@@ -56,12 +57,11 @@ class VehiclesXml:
 
         # Reorder XML elements based on all_vehicles order
         self.vehicle_root[:] = sorted(
-            self.vehicle_root,
-            key=lambda child: vehicle_order.get(child.get("uniqueId"), 999999)
+            self.vehicle_root, key=lambda child: vehicle_order.get(child.get("uniqueId"), 999999)
         )
 
         # Make a backup copy of the old vehicles.xml
-        current_datetime = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+        current_datetime = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
         backup_path = os.path.join(self.savegame_folder, "vehicles_" + current_datetime + ".xml")
         original_path = os.path.join(self.savegame_folder, "vehicles.xml")
         os.rename(original_path, backup_path)
