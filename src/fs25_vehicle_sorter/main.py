@@ -85,13 +85,17 @@ window = sg.Window('FS25 Vehicle Sorter', layout)
 def move_selected_vehicle_up(ui_state: {}, positions=1):
     if selected_vehicle(ui_state) is not None:
         new_vehicle_index = vehicles_xml.move_up(selected_vehicle(ui_state), positions)
-        window['vehicle_list'].update(values=vehicles_xml.vehicles_list, set_to_index=[new_vehicle_index])
+        # Scroll to a few items before the target to show context above and below
+        scroll_index = max(0, new_vehicle_index - 5)
+        window['vehicle_list'].update(values=vehicles_xml.vehicles_list, set_to_index=[new_vehicle_index], scroll_to_index=scroll_index)
 
 
 def move_selected_vehicle_down(ui_state: {}, positions=1):
     if selected_vehicle(ui_state) is not None:
         new_vehicle_index = vehicles_xml.move_down(selected_vehicle(ui_state), positions)
-        window['vehicle_list'].update(values=vehicles_xml.vehicles_list, set_to_index=[new_vehicle_index])
+        # Scroll to a few items before the target to show context above and below
+        scroll_index = max(0, new_vehicle_index - 5)
+        window['vehicle_list'].update(values=vehicles_xml.vehicles_list, set_to_index=[new_vehicle_index], scroll_to_index=scroll_index)
 
 
 # Event Loop to process "events" and get the "values" of the inputs
