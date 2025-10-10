@@ -102,9 +102,11 @@ while True:
 
     if event == 'savegame_input' or event == 'show_all_vehicles':
         if event == 'show_all_vehicles':
-            # Toggle filter
+            # Toggle filter - only reload if a savegame is already loaded
             vehicles_xml.show_all_vehicles = values['show_all_vehicles']
-            vehicles_xml.load_savegame(vehicles_xml.savegame_folder)
+            if hasattr(vehicles_xml, 'savegame_folder') and vehicles_xml.savegame_folder:
+                vehicles_xml.load_savegame(vehicles_xml.savegame_folder)
+                window['vehicle_list'].update(vehicles_xml.vehicles_list)
         else:
             # Load new savegame
             vehicles_xml = VehiclesXml()
@@ -115,8 +117,8 @@ while True:
                 sg.PopupOK("Please select a valid savegame!", title="No valid savegame")
                 continue
 
-        window['vehicle_list'].update(vehicles_xml.vehicles_list)
-        window['savegame_save'].update(disabled=False)
+            window['vehicle_list'].update(vehicles_xml.vehicles_list)
+            window['savegame_save'].update(disabled=False)
 
     if event == 'savegame_save':
         vehicles_xml.save_savegame()
