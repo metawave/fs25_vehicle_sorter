@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 license = {text = "MIT"}
 keywords = ["farming-simulator", "fs25", "vehicle", "savegame"]
 dependencies = [
-    "FreeSimpleGUI~=5.2.0",
+    "FreeSimpleGUI~=5.3.0.post1",
 ]
 
 [dependency-groups]
