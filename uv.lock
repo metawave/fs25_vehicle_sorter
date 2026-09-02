@@ -40,11 +40,11 @@ wheels = [
 
 [[package]]
 name = "freesimplegui"
-version = "5.2.0.post1"
+version = "5.3.0.post1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/97/41/8a56f3d4a3760fec6b1f63ff48fa57620f0552eb5f0986fb4aa35f4119f1/freesimplegui-5.2.0.post1.tar.gz", hash = "sha256:e58a0e6758e9a9e87152256911f94fcc3998356d1309973a9f4d9df2dc55f98a", size = 718668, upload-time = "2025-03-17T17:50:24.402Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1b/bb/e131232aaec4b845dea2a3424bb8b7772fe2d97058ee3c70a0815b0f0d46/freesimplegui-5.3.0.post1.tar.gz", hash = "sha256:cfc5712c6803bdf6f03aaaa18b083a54a1a3f4254221af06bb08faa4a6aa9719", size = 719482, upload-time = "2026-08-27T08:54:18.232Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/73/b4/ce89b4b40d1d2f726583b4d00b99589ba37580012890a8bc4b88d1d2a239/freesimplegui-5.2.0.post1-py3-none-any.whl", hash = "sha256:3d61eb519324503232f86b2f1bd7f5c6813ce225f6e189d0fd737ddb036af4d5", size = 733618, upload-time = "2025-03-17T17:50:22.559Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/8d/6737ebc9117ea57e185e2209874f9a989d564b8aa162469d11bbd6c65031/freesimplegui-5.3.0.post1-py3-none-any.whl", hash = "sha256:e5b3aa005c94237e9d929a3be72c6311a275e03c8a742a1cd3e565c1903d6e65", size = 734147, upload-time = "2026-08-27T08:54:16.552Z" },
 ]
 
 [[package]]
@@ -63,7 +63,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "freesimplegui", specifier = "~=5.2.0" }]
+requires-dist = [{ name = "freesimplegui", specifier = "~=5.3.0.post1" }]
 
 [package.metadata.requires-dev]
 dev = [
